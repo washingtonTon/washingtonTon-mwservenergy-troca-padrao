@@ -1,0 +1,63 @@
+{
+  "company": "MWServEnergy",
+  "whatsapp": "+5511920113230",
+  "gallery": [
+    {
+      "src": "IMG-20190319-WA0024.jpg",
+      "caption": "Barramentos e quadro organizado"
+    },
+    {
+      "src": "IMG_20210122_170611120.jpg",
+      "caption": "Medição e testes de tensão"
+    },
+    {
+      "src": "IMG_20181121_151239572.jpg",
+      "caption": "Distribuição com barramentos em cobre"
+    },
+    {
+      "src": "20190615_163243.jpg",
+      "caption": "Conjunto de medidores"
+    },
+    {
+      "src": "20190315_170541.jpg",
+      "caption": "Painel de medidores instalado"
+    },
+    {
+      "src": "20200215_211145.jpg",
+      "caption": "QDC comercial com DPS e DR"
+    },
+    {
+      "src": "IMG_20181121_151201222.jpg",
+      "caption": "Seccionadoras e cabos dimensionados"
+    },
+    {
+      "src": "IMG_20181115_103511701.jpg",
+      "caption": "Ramal e terminações"
+    },
+    {
+      "src": "IMG-20230803-WA0050.jpg",
+      "caption": "Trabalho em poste com segurança"
+    }
+  ],
+  "metrics": {
+    "antes_perdas_pct": 14.0,
+    "depois_perdas_pct": 4.5,
+    "equipamentos_salvos": 27,
+    "economia_media_kwh": [
+      420,
+      395,
+      372,
+      360,
+      355,
+      344
+    ],
+    "meses": [
+      "Jan",
+      "Fev",
+      "Mar",
+      "Abr",
+      "Mai",
+      "Jun"
+    ]
+  }
+}
