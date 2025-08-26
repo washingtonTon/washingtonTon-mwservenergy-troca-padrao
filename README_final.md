@@ -1,134 +1,83 @@
-# mwservenergy-troca-padrao
+# ⚡ MWServEnergy – Troca de Padrão de Entrada
 
-> Página/landing para serviços de **troca de padrão elétrico** — projeto criado por **Washington / MWServEnergy**.
+[![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://washingtonton.github.io/washingtonTon-mwservenergy-troca-padrao/)
+![Status](https://img.shields.io/badge/Status-Online-brightgreen?style=for-the-badge)
+![Tech](https://img.shields.io/badge/Feito%20com-HTML%20%7C%20CSS%20%7C%20JS-orange?style=for-the-badge)
 
----
+Projeto desenvolvido para apresentar os serviços da **MWServEnergy**, com foco em instalações elétricas, **troca de padrão de entrada** e **organização de quadros elétricos**.  
+O site é publicado via **GitHub Pages** e utiliza um **arquivo JSON** para carregar imagens e métricas de forma dinâmica.
 
-## Descrição
-
-Site estático pensado para apresentar o serviço de troca de padrão de entrada (padrão de medição) com visual profissional, imagens de obras, e gráficos em alta definição. Este repositório contém o código fonte do site, arquivos estáticos (HTML/CSS/JS), e uma API simulada para servir imagens e gráficos HD cinematográficos.
-
-**URL prevista (GitHub Pages):** `https://washingtonTon.github.io/mwservenergy-troca-padrao`
-
----
-
-## Estrutura do repositório
-
-```
-mwservenergy-troca-padrao/
-├─ index.html
-├─ about.html
-├─ assets/
-│  ├─ images/        # fotos de obras, logos, thumbnails
-│  └─ graphics/      # gráficos gerados (hd)
-├─ css/
-│  └─ styles.css
-├─ js/
-│  └─ main.js        # interações, chamadas à API de imagens/graphs
-├─ api/              # (opcional) mock server / lambdas
-│  └─ README.md
-├─ docs/             # se usar GitHub Pages com /docs
-└─ README.md         # este arquivo
-```
+🔗 [👉 Acesse o site publicado aqui](https://washingtonton.github.io/washingtonTon-mwservenergy-troca-padrao/)
 
 ---
 
-## Recursos incluídos
+## 📂 Estrutura do Projeto
 
-- Landing page responsiva com seções: Hero, Serviços, Orçamento rápido, Galeria, Depoimentos e Contato.
-- Galeria dinâmica que busca imagens via API local (ou estática em `/assets/images`).
-- Endpoint API (mock) para imagens e gráficos HD.
-- Favicons e meta tags para SEO e compartilhamento em redes.
-- Exemplo de formulário de contato (integrar com Formspree, Netlify Forms, Google Forms, ou WhatsApp link direto).
+├── index.html # Página principal do site
+├── style.css # Estilos visuais
+├── script.js # Código JS que consome o data.json
+├── data.json # Arquivo de dados (galeria + métricas)
+├── gallery/ # Pasta de imagens utilizadas no site
+│ ├── IMG-20190319-WA0024.jpg
+│ ├── IMG_20210122_170611120.jpg
+│ ├── IMG_20181121_151239572.jpg
+│ ├── 20190615_163243.jpg
+│ ├── 20190315_170541.jpg
+│ ├── 20200215_211145.jpg
+│ ├── IMG_20181121_151201222.jpg
+│ ├── IMG_20181115_103511701.jpg
+│ ├── IMG-20230803-WA0050.jpg
+
+yaml
+Copiar código
 
 ---
 
-## Como visualizar
+## 🖼️ Galeria de Imagens
 
-O site pode ser aberto diretamente pelo arquivo `index.html` em qualquer navegador ou usando servidores locais como Live Server (VSCode).
+As imagens do site não estão fixas no código HTML.  
+Elas são carregadas automaticamente a partir do arquivo **`data.json`**, que organiza os caminhos e as legendas.
 
-Também pode ser publicado usando GitHub Pages ou outras plataformas como Netlify e Vercel.
-
----
-
-## API de imagens e gráficos (exemplo)
-
-### Endpoints propostos
-
-- `/api/images` — retorna lista JSON de imagens da galeria.
-- `/api/images/:id` — retorna imagem (ou URL) em alta resolução.
-- `/api/graphs` — retorna metadados dos gráficos HD disponíveis.
-- `/api/graphs/:id` — retorna imagem do gráfico em alta resolução.
-
-### Exemplo de resposta (`/api/images`)
+Exemplo dentro do `data.json`:
 
 ```json
-[
-  {"id":"obra-01","title":"Troca de padrão - condomínio","thumb":"/assets/images/obra-01-thumb.jpg","hd":"/assets/images/obra-01-hd.jpg"},
-  {"id":"obra-02","title":"Instalação caixa nova","thumb":"/assets/images/obra-02-thumb.jpg","hd":"/assets/images/obra-02-hd.jpg"}
-]
-```
+{
+  "src": "gallery/IMG-20190319-WA0024.jpg",
+  "caption": "Barramentos e quadro organizado"
+}
+➕ Como adicionar novas imagens
+Coloque a nova foto dentro da pasta gallery/
 
-### Trecho JS para buscar imagens
+Abra o arquivo data.json e adicione um novo item dentro de "gallery":
 
-```js
-fetch('/api/images')
-  .then(res => res.json())
-  .then(list => {
-    const galeria = document.querySelector('#galeria');
-    list.forEach(item => {
-      const img = document.createElement('img');
-      img.src = item.thumb;
-      img.alt = item.title;
-      img.dataset.hd = item.hd;
-      galeria.appendChild(img);
-    });
-  });
-```
+json
+Copiar código
+{
+  "src": "gallery/nome-da-imagem.jpg",
+  "caption": "Descrição da foto"
+}
+Salve, faça commit e envie para o GitHub:
 
----
+bash
+Copiar código
+git add .
+git commit -m "Adicionando nova imagem à galeria"
+git push origin main
+Atualize a página publicada no GitHub Pages (Ctrl+F5 no navegador)
 
-## SEO, performance e imagens HD
+📊 Métricas do Projeto
+Além das imagens, o data.json também armazena indicadores importantes, como:
 
-- Imagens otimizadas em formatos modernos (WebP/AVIF) quando possível.
-- Uso de `loading="lazy"` para carregar imagens da galeria.
-- `manifest.json` e meta tags para SEO e redes sociais.
+Perdas elétricas antes e depois da correção
 
----
+Número de equipamentos preservados
 
-## Deploy automático
+Economia média de kWh por mês
 
-- **GitHub Pages** — gratuito e integrado ao repositório.
-- **Netlify** — deploy contínuo conectado ao branch principal.
-- **Vercel** — suporte rápido a sites estáticos.
+Essas métricas são exibidas automaticamente no site.
 
----
+📞 Contato
+📌 MWServEnergy – Washington
+📱 WhatsApp: +55 11 92011-3230
 
-## Personalização rápida
-
-- Texto de destaque e preços em `index.html`.
-- Fotos em `assets/images/` (preferencialmente imagens reais de serviços).
-- Botões de contato com link direto para WhatsApp: `https://wa.me/5511920113230`.
-
----
-
-## Contato profissional
-
-- **Washington / MWServEnergy**
-- WhatsApp profissional: **(11) 92011-3230**
-- Email: `washington_caio@hotmail.com`
-
----
-
-## Boas práticas
-
-1. Manter versão otimizada das imagens em `assets/images/` e originais em `assets/source/`.
-2. Mensagens de atualização claras para organização do histórico.
-3. Testes frequentes no celular para responsividade.
-4. Inclusão de formulário simples que envie mensagem direta para WhatsApp.
-
----
-
-## Licença
-
-Licença MIT — livre para adaptação e distribuição.
+🚀 Desenvolvido para apresentar profissionalmente os serviços de elétrica e projetos da MWServEnergy.
